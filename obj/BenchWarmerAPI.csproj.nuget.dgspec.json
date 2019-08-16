@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj": {}
+    "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\BenchWarmerAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj": {
+    "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\BenchWarmerAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
+        "projectUniqueName": "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
         "projectName": "BenchWarmerAPI",
-        "projectPath": "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
-        "packagesPath": "C:\\Users\\peyton.baker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\obj\\",
+        "projectPath": "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
+        "packagesPath": "C:\\Users\\carleton.cabarrus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\peyton.baker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\carleton.cabarrus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
             }
           },
           "imports": [
