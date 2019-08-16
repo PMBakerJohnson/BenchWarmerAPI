@@ -3,7 +3,6 @@ C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\bin\Debug\netcoreapp2.1\BenchW
 C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\bin\Debug\netcoreapp2.1\BenchWarmerAPI.runtimeconfig.dev.json
 C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\bin\Debug\netcoreapp2.1\BenchWarmerAPI.dll
 C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\bin\Debug\netcoreapp2.1\BenchWarmerAPI.pdb
-C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\obj\Debug\netcoreapp2.1\BenchWarmerAPI.csprojAssemblyReference.cache
 C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\obj\Debug\netcoreapp2.1\BenchWarmerAPI.csproj.CoreCompileInputs.cache
 C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\obj\Debug\netcoreapp2.1\BenchWarmerAPI.RazorAssemblyInfo.cache
 C:\Users\peyton.baker\Source\Repos\BenchWarmerAPI\obj\Debug\netcoreapp2.1\BenchWarmerAPI.RazorAssemblyInfo.cs
