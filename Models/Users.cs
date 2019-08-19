@@ -11,6 +11,8 @@ namespace BenchWarmerAPI.Models
         {
             Characters = new HashSet<Characters>();
         }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Upassword { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BenchWarmerAPI.Models
@@ -10,7 +11,8 @@ namespace BenchWarmerAPI.Models
         {
             Characters = new HashSet<Characters>();
         }
-
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClassId { get; set; }
         public string ClassName { get; set; }
 
