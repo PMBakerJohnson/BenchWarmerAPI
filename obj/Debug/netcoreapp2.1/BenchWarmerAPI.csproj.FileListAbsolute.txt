@@ -25,3 +25,17 @@ C:\Users\carleton.cabarrus\Source\Repos\benchwarmingteam\BenchWarmerAPI\obj\Debu
 C:\Users\carleton.cabarrus\Source\Repos\benchwarmingteam\BenchWarmerAPI\obj\Debug\netcoreapp2.1\BenchWarmerAPI.RazorTargetAssemblyInfo.cache
 C:\Users\carleton.cabarrus\Source\Repos\benchwarmingteam\BenchWarmerAPI\obj\Debug\netcoreapp2.1\BenchWarmerAPI.dll
 C:\Users\carleton.cabarrus\Source\Repos\benchwarmingteam\BenchWarmerAPI\obj\Debug\netcoreapp2.1\BenchWarmerAPI.pdb
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.dll
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.pdb
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\bin\Debug\netcoreapp2.1\BenchWarmerAPI.deps.json
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\bin\Debug\netcoreapp2.1\BenchWarmerAPI.runtimeconfig.json
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\bin\Debug\netcoreapp2.1\BenchWarmerAPI.runtimeconfig.dev.json
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\bin\Debug\netcoreapp2.1\BenchWarmerAPI.dll
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\bin\Debug\netcoreapp2.1\BenchWarmerAPI.pdb
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.csproj.CoreCompileInputs.cache
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.RazorAssemblyInfo.cache
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.RazorAssemblyInfo.cs
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.AssemblyInfoInputs.cache
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.AssemblyInfo.cs
+C:\Users\Lily.Ayers\Source\Repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Lily.Ayers\source\repos\benchwarmingteam\BenchWarmerAPIMaster\obj\Debug\netcoreapp2.1\BenchWarmerAPI.csprojAssemblyReference.cache

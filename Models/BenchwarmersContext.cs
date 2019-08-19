@@ -23,7 +23,6 @@ namespace BenchWarmerAPI.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=benchwarmersdb.crsp7d0nfbrs.us-east-2.rds.amazonaws.com,1521;Initial Catalog=Benchwarmers;User ID=admin;Password=gkTBC1grTnxWVI89GA2F;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
