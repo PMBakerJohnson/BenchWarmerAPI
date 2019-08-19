@@ -48,10 +48,20 @@ namespace BenchWarmerAPI.Controllers
             try
             {
                 _context.Users.Add(user);
-                return true;
+                _context.SaveChanges();
+                bool check=UsernameExists(user.Username);
+                if (check)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            catch
+            catch(Exception ex)
             {
+                var exception = ex.Message;
                 return false;
             }
         }
