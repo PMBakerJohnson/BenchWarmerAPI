@@ -28,14 +28,16 @@ namespace BenchWarmerAPI.Controllers
             {
                 Users user = _context.Users.FirstOrDefault(u => u.Username == username
                                                             && u.Upassword == password);
-                if(user != null)
-                {
-                    return true;
-                }
+                //if a username does exists then returns true
+                return true;
             }
-            return false;
-        }
+            else
+            {
+                return false;
+            }
 
+        }
+        
         // GET: api/Users/register/username/password
         [HttpPost("/register/{username}/{password}")]
         public bool Register(string username, string password)
@@ -47,15 +49,23 @@ namespace BenchWarmerAPI.Controllers
             };
             try
             {
-                _context.Users.Add(user);
-                _context.SaveChanges();
-                bool check=UsernameExists(user.Username);
-                if (check)
+                if (!_context.Users.Contains(user))
                 {
-                    return true;
+                    _context.Users.Add(user);
+                    _context.SaveChanges();
+                    bool check = UsernameExists(user.Username);
+                    if (check)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
+                    // if there is a user already that exists with that username maybe add a message
                     return false;
                 }
             }
@@ -112,7 +122,7 @@ namespace BenchWarmerAPI.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException db)
             {
                 if (!UsersExists(id))
                 {
@@ -120,6 +130,7 @@ namespace BenchWarmerAPI.Controllers
                 }
                 else
                 {
+                    var exception = db.Message;
                     throw;
                 }
             }

@@ -26,7 +26,15 @@ namespace BenchWarmerAPI.Controllers
         {
             return _context.Characters;
         }
+        //returns all the players characters
+        [HttpGet("{username}")]
+        public IEnumerable<Characters> GetCharactersByUserName([FromRoute] string username)
+        {
 
+            Users user = _context.Users.SingleOrDefault(e => e.Username == username);
+
+            return _context.Characters.ToList().FindAll(m => m.UserIdFk == user.UserId);              
+        }
         // GET: api/Characters/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCharacters([FromRoute] int id)
