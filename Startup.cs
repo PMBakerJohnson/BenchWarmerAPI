@@ -21,12 +21,23 @@ namespace BenchWarmerAPI
             Configuration = configuration;
         }
 
+        readonly string PolicyName = "AngularLocalTestPolicy";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(PolicyName,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200");
+                    });
+            });     
 
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "BenchWarmerAPI", Version = "v1" }));
         }
@@ -43,6 +54,7 @@ namespace BenchWarmerAPI
                 app.UseHsts();
             }
 
+            app.UseCors(PolicyName);
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();

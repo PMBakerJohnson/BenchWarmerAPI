@@ -12642,23 +12642,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carleton.cabarrus\\.nuget\\packages\\": {},
+    "C:\\Users\\Lily.Ayers\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Lily.Ayers\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPIMaster\\BenchWarmerAPI.csproj",
       "projectName": "BenchWarmerAPI",
-      "projectPath": "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
-      "packagesPath": "C:\\Users\\carleton.cabarrus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carleton.cabarrus\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPI\\obj\\",
+      "projectPath": "C:\\Users\\Lily.Ayers\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPIMaster\\BenchWarmerAPI.csproj",
+      "packagesPath": "C:\\Users\\Lily.Ayers\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lily.Ayers\\Source\\Repos\\benchwarmingteam\\BenchWarmerAPIMaster\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\carleton.cabarrus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lily.Ayers\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

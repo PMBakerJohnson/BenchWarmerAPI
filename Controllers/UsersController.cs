@@ -20,6 +20,42 @@ namespace BenchWarmerAPI.Controllers
             _context = context;
         }
 
+        // GET: api/Users/login/username/password
+        [HttpGet("/login/{username}/{password}")]
+        public bool Login(string username, string password)
+        {
+            if (UsernameExists(username))
+            {
+                Users user = _context.Users.FirstOrDefault(u => u.Username == username
+                                                            && u.Upassword == password);
+                if(user != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // GET: api/Users/register/username/password
+        [HttpPost("/register/{username}/{password}")]
+        public bool Register(string username, string password)
+        {
+            Users user = new Users()
+            {
+                Username = username,
+                Upassword = password
+            };
+            try
+            {
+                _context.Users.Add(user);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         // GET: api/Users
         [HttpGet]
         public IEnumerable<Users> GetUsers()
@@ -115,6 +151,11 @@ namespace BenchWarmerAPI.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(users);
+        }
+
+        private bool UsernameExists(string username)
+        {
+            return _context.Users.Any(e => e.Username == username);
         }
 
         private bool UsersExists(int id)
