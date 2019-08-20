@@ -11797,24 +11797,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\peyton.baker\\.nuget\\packages\\": {},
+    "C:\\Users\\Xavier.Richardson\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Xavier.Richardson\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
       "projectName": "BenchWarmerAPI",
-      "projectPath": "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
-      "packagesPath": "C:\\Users\\peyton.baker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\peyton.baker\\Source\\Repos\\BenchWarmerAPI\\obj\\",
+      "projectPath": "C:\\Users\\Xavier.Richardson\\Source\\Repos\\BenchWarmerAPI\\BenchWarmerAPI.csproj",
+      "packagesPath": "C:\\Users\\Xavier.Richardson\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Xavier.Richardson\\Source\\Repos\\BenchWarmerAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\peyton.baker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Xavier.Richardson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
