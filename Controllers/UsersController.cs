@@ -110,7 +110,7 @@ namespace BenchWarmerAPI.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException db)
             {
                 if (!UsersExists(id))
                 {
@@ -118,6 +118,7 @@ namespace BenchWarmerAPI.Controllers
                 }
                 else
                 {
+                    var exception = db.Message;
                     throw;
                 }
             }
