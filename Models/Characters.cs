@@ -10,7 +10,7 @@ namespace BenchWarmerAPI.Models
         public int? UserIdFk { get; set; }
         public int? ClassIdFk { get; set; }
 
-        public Classes ClassIdFkNavigation { get; set; }
+        public virtual Classes ClassIdFkNavigation { get; set; }
         public Users UserIdFkNavigation { get; set; }
     }
 }

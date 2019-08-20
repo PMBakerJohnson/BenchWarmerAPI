@@ -35,14 +35,17 @@ namespace BenchWarmerAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             services.AddDbContext<BenchwarmersContext>(options => options.UseSqlServer("Data Source=benchwarmersdb.crsp7d0nfbrs.us-east-2.rds.amazonaws.com,1521;Initial Catalog=Benchwarmers;User ID=admin;Password=gkTBC1grTnxWVI89GA2F;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddCors(options =>
             {
                 options.AddPolicy(PolicyName,
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:4200");
+                        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
                     });
             });     
 
