@@ -20,59 +20,47 @@ namespace BenchWarmerAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Users/login/username/password
-        [HttpGet("/login/{username}/{password}")]
-        public bool Login(string username, string password)
+        // POST: /login
+        [HttpPost("/login")]
+        public int Login([FromBody] Users userInfo)
         {
-            if (UsernameExists(username))
+            if (UsernameExists(userInfo.Username))
             {
-                Users user = _context.Users.FirstOrDefault(u => u.Username == username
-                                                            && u.Upassword == password);
-                //if a username does exists then returns true
-                return true;
+                Users user = _context.Users.FirstOrDefault(u => u.Username == userInfo.Username
+                                                            && u.Upassword == userInfo.Upassword);
+                if(user != null)
+                {
+                    return user.UserId;
+                }
             }
-            else
-            {
-                return false;
-            }
-
+            return 0;
         }
-        
-        // GET: api/Users/register/username/password
-        [HttpPost("/register/{username}/{password}")]
-        public bool Register(string username, string password)
+
+        // POST: /register
+        [HttpPost("/register")]
+        public int Register([FromBody] Users userInfo)
         {
-            Users user = new Users()
-            {
-                Username = username,
-                Upassword = password
-            };
             try
             {
-                if (!_context.Users.Contains(user))
+                if(!UsernameExists(userInfo.Username))
                 {
-                    _context.Users.Add(user);
+
+                    _context.Users.Add(userInfo);
                     _context.SaveChanges();
-                    bool check = UsernameExists(user.Username);
-                    if (check)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    userInfo = _context.Users.FirstOrDefault(u => u.Username == userInfo.Username);
+
+                    return userInfo.UserId;
                 }
                 else
                 {
-                    // if there is a user already that exists with that username maybe add a message
-                    return false;
+                    //using -1 as code for "username taken"
+                    return -1;
                 }
             }
-            catch(Exception ex)
+            catch
             {
-                var exception = ex.Message;
-                return false;
+                //using 0 as code for error
+                return 0;
             }
         }
 

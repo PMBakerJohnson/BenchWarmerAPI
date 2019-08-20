@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BenchWarmerAPI.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace BenchWarmerAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AngularLocalTestPolicy")]
     public class CharactersController : ControllerBase
     {
         private readonly BenchwarmersContext _context;
@@ -22,7 +24,7 @@ namespace BenchWarmerAPI.Controllers
 
         // GET: api/Characters
         [HttpGet]
-        public IEnumerable<Characters> GetCharacters()
+        public IEnumerable<Characters> GetAllCharacters()
         {
             return _context.Characters;
         }
@@ -51,22 +53,21 @@ namespace BenchWarmerAPI.Controllers
 
         //}
         // GET: api/Characters/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCharacters([FromRoute] int id)
+        [HttpGet("info/{characterID}")]
+        public Characters GetCharacter([FromRoute] int characterID)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            Characters character = _context.Characters.Find(characterID);
+            character.ClassIdFkNavigation = _context.Classes.Find(character.ClassIdFk);
+            return character;
+        }
 
-            var characters = await _context.Characters.FindAsync(id);
+        // GET: api/Characters/PMBaker
+        [HttpGet("{id}")]
+        public IEnumerable<Characters> GetMyCharacters([FromRoute] int id)
+        {
+            var characters =  _context.Characters.Where(c => c.UserIdFk == id).Include("ClassIdFkNavigation");
 
-            if (characters == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(characters);
+            return characters;
         }
 
         // PUT: api/Characters/5
@@ -106,17 +107,31 @@ namespace BenchWarmerAPI.Controllers
 
         // POST: api/Characters
         [HttpPost]
-        public async Task<IActionResult> PostCharacters([FromBody] Characters characters)
+        public bool PostCharacters([FromBody] Characters characters)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!_context.Classes.Any(c => c.ClassName == characters.ClassIdFkNavigation.ClassName))
+                {
+                    _context.Classes.Add(characters.ClassIdFkNavigation);
+                    _context.SaveChanges();
+                }
+
+                Classes existing = _context.Classes.FirstOrDefault(c => c.ClassName == characters.ClassIdFkNavigation.ClassName);
+
+                characters.ClassIdFk = existing.ClassId;
+
+                _context.Characters.Add(characters);
+                _context.SaveChanges();
+
+                characters = _context.Characters.FirstOrDefault(c => c.FullName == characters.FullName);
+
+                return true;
             }
-
-            _context.Characters.Add(characters);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCharacters", new { id = characters.CharacterId }, characters);
+            catch
+            {
+                return false;
+            }
         }
 
         // DELETE: api/Characters/5
