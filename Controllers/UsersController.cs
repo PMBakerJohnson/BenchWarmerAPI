@@ -20,39 +20,47 @@ namespace BenchWarmerAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Users/login/username/password
-        [HttpGet("/login/{username}/{password}")]
-        public bool Login(string username, string password)
+        // POST: /login
+        [HttpPost("/login")]
+        public int Login([FromBody] Users userInfo)
         {
-            if (UsernameExists(username))
+            if (UsernameExists(userInfo.Username))
             {
-                Users user = _context.Users.FirstOrDefault(u => u.Username == username
-                                                            && u.Upassword == password);
+                Users user = _context.Users.FirstOrDefault(u => u.Username == userInfo.Username
+                                                            && u.Upassword == userInfo.Upassword);
                 if(user != null)
                 {
-                    return true;
+                    return user.UserId;
                 }
             }
-            return false;
+            return 0;
         }
 
-        // GET: api/Users/register/username/password
-        [HttpPost("/register/{username}/{password}")]
-        public bool Register(string username, string password)
+        // POST: /register
+        [HttpPost("/register")]
+        public int Register([FromBody] Users userInfo)
         {
-            Users user = new Users()
-            {
-                Username = username,
-                Upassword = password
-            };
             try
             {
-                _context.Users.Add(user);
-                return true;
+                if(!UsernameExists(userInfo.Username))
+                {
+
+                    _context.Users.Add(userInfo);
+                    _context.SaveChanges();
+                    userInfo = _context.Users.FirstOrDefault(u => u.Username == userInfo.Username);
+
+                    return userInfo.UserId;
+                }
+                else
+                {
+                    //using -1 as code for "username taken"
+                    return -1;
+                }
             }
             catch
             {
-                return false;
+                //using 0 as code for error
+                return 0;
             }
         }
 
@@ -102,7 +110,7 @@ namespace BenchWarmerAPI.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException db)
             {
                 if (!UsersExists(id))
                 {
@@ -110,6 +118,7 @@ namespace BenchWarmerAPI.Controllers
                 }
                 else
                 {
+                    var exception = db.Message;
                     throw;
                 }
             }

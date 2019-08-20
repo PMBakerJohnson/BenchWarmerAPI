@@ -18,21 +18,25 @@ namespace BenchWarmerAPI.Models
         public virtual DbSet<Characters> Characters { get; set; }
         public virtual DbSet<Classes> Classes { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        /// <summary>
+        /// Don't Need this method needed to be placed in Startup Though!!!!
+        /// </summary>
+        /// <param name="modelBuilder"></param>
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=benchwarmersdb.crsp7d0nfbrs.us-east-2.rds.amazonaws.com,1521;Initial Catalog=Benchwarmers;User ID=admin;Password=gkTBC1grTnxWVI89GA2F;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ForSqlServerUseIdentityColumns();
             modelBuilder.Entity<Characters>(entity =>
             {
-                entity.HasKey(e => e.CharacterId);
+                entity.Property(e => e.CharacterId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.CharacterId).HasColumnName("characterID");
 
@@ -57,7 +61,7 @@ namespace BenchWarmerAPI.Models
 
             modelBuilder.Entity<Classes>(entity =>
             {
-                entity.HasKey(e => e.ClassId);
+                entity.Property(e => e.ClassId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ClassId).HasColumnName("classID");
 
@@ -65,10 +69,10 @@ namespace BenchWarmerAPI.Models
                     .HasColumnName("className")
                     .HasMaxLength(50);
             });
-
+            // Make sure you use Value generated on Add for Auto incremented keys
             modelBuilder.Entity<Users>(entity =>
             {
-                entity.HasKey(e => e.UserId);
+                entity.Property(e => e.UserId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.UserId).HasColumnName("userID");
 
