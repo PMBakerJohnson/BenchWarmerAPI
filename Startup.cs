@@ -37,6 +37,15 @@ namespace BenchWarmerAPI
                     });
             });     
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(PolicyName,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200");
+                    });
+            });     
+
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "BenchWarmerAPI", Version = "v1" }));
         }
 
