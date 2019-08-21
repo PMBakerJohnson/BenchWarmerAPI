@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BenchWarmerAPI.Models;
+using Microsoft.AspNet.OData;
 
 namespace BenchWarmerAPI.Controllers
 {
@@ -66,6 +67,7 @@ namespace BenchWarmerAPI.Controllers
 
         // GET: api/Users
         [HttpGet]
+        [EnableQuery]
         public IEnumerable<Users> GetUsers()
         {
             return _context.Users;
